@@ -1,8 +1,8 @@
-import './header.scss'
+import './switcher.scss'
 
-export default function Header() {
+export default function Switcher() {
   return (
-    <div className="header">
+    <div className="switcher">
       <label className="theme-switch" htmlFor="checkbox">
         <input type="checkbox" id="checkbox" />
         <div className="slider round"></div>

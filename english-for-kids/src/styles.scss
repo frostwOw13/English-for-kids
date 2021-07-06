@@ -1,4 +1,11 @@
-.wrapper {
+#root {
+  margin: 0 100px;
+}
+
+.header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 0 25px 50px 25px;
 }

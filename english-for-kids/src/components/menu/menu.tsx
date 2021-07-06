@@ -1,4 +1,5 @@
 import './menu.scss'
+import cards from '../cards'
 
 export default function Menu() {
   return (
@@ -9,31 +10,15 @@ export default function Menu() {
           <span></span>
         </label>
         <ul className="menu__box">
-          <li>
-            <a className="menu__item" href="/#">
-              Главная
-            </a>
-          </li>
-          <li>
-            <a className="menu__item" href="/#">
-              Проекты
-            </a>
-          </li>
-          <li>
-            <a className="menu__item" href="/#">
-              Команда
-            </a>
-          </li>
-          <li>
-            <a className="menu__item" href="/#">
-              Блог
-            </a>
-          </li>
-          <li>
-            <a className="menu__item" href="/#">
-              Контакты
-            </a>
-          </li>
+          {cards[0].map((category, id) => {
+            return (
+              <li key={id}>
+                <a className="menu__item" href="/#">
+                  {category}
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </>
