@@ -6,7 +6,7 @@
 .menu__btn {
   display: flex; /* используем flex для центрирования содержимого */
   align-items: center; /* центрируем содержимое кнопки */
-  position: absolute;
+  position: fixed;
   top: 20px;
   width: 36px;
   height: 36px;

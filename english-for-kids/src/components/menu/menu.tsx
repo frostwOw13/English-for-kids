@@ -1,5 +1,6 @@
 import './menu.scss'
 import cards from '../cards'
+import { NavLink } from 'react-router-dom'
 
 export default function Menu() {
   return (
@@ -10,12 +11,17 @@ export default function Menu() {
           <span></span>
         </label>
         <ul className="menu__box">
+          <li>
+            <NavLink to={'/'} className="menu__item">
+              Main Page
+            </NavLink>
+          </li>
           {cards[0].map((category, id) => {
             return (
               <li key={id}>
-                <a className="menu__item" href="/#">
+                <NavLink to={'/categories-' + (id + 1)} className="menu__item">
                   {category}
-                </a>
+                </NavLink>
               </li>
             )
           })}
