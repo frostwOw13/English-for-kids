@@ -1,11 +1,32 @@
-#root {
-  margin: 0 100px;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  margin: 0 25px 50px 25px;
+  margin: 0 auto 50px;
+  max-width: 1420px;
+}
+
+@media (max-width: 1495px) {
+  .header {
+    max-width: 1050px;
+  }
+}
+
+@media (max-width: 1415px) {
+  .header {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1065px) {
+  .header {
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 715px) {
+  .header {
+    max-width: 300px;
+  }
 }

@@ -1,5 +1,7 @@
 .field {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  max-width: 1490px;
+  margin: 0 auto;
 }

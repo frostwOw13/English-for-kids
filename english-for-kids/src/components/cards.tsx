@@ -6,6 +6,8 @@ const cards = [
     'Animal (set B)',
     'Clothes',
     'Emotions',
+    'Furniture',
+    'Food',
   ],
   [
     {
@@ -305,6 +307,106 @@ const cards = [
       translation: 'смех',
       image: './img/laugh.jpg',
       audioSrc: './audio/laugh.mp3',
+    },
+  ],
+  [
+    {
+      word: 'bed',
+      translation: 'кровать',
+      image: './img/bed.jpg',
+      audioSrc: './audio/bed.mp3',
+    },
+    {
+      word: 'wardrobe',
+      translation: 'шкаф',
+      image: './img/wardrobe.jpg',
+      audioSrc: './audio/wardrode.mp3',
+    },
+    {
+      word: 'shelf',
+      translation: 'полка',
+      image: './img/shelf.jpg',
+      audioSrc: './audio/shelf.mp3',
+    },
+    {
+      word: 'lamp',
+      translation: 'лампа',
+      image: './img/lamp.jpg',
+      audioSrc: './audio/lamp.mp3',
+    },
+    {
+      word: 'sofa',
+      translation: 'диван',
+      image: './img/sofa.jpg',
+      audioSrc: './audio/sofa.mp3',
+    },
+    {
+      word: 'armchair',
+      translation: 'кресло',
+      image: './img/armchair.jpg',
+      audioSrc: './audio/armchair.mp3',
+    },
+    {
+      word: 'bookcase',
+      translation: 'книжный шкаф',
+      image: './img/bookcase.jpg',
+      audioSrc: './audio/bookcase.mp3',
+    },
+    {
+      word: 'cupboard',
+      translation: 'шкафчик',
+      image: './img/cupboard.jpg',
+      audioSrc: './audio/cupboard.mp3',
+    },
+  ],
+  [
+    {
+      word: 'bread',
+      translation: 'хлеб',
+      image: './img/bread.jpg',
+      audioSrc: './audio/bread.mp3',
+    },
+    {
+      word: 'cheese',
+      translation: 'сыр',
+      image: './img/cheese.jpg',
+      audioSrc: './audio/cheese.mp3',
+    },
+    {
+      word: 'pasta',
+      translation: 'макароны',
+      image: './img/pasta.jpg',
+      audioSrc: './audio/pasta.mp3',
+    },
+    {
+      word: 'rice',
+      translation: 'рис',
+      image: './img/rice.jpg',
+      audioSrc: './audio/rice.mp3',
+    },
+    {
+      word: 'eggs',
+      translation: 'яйца',
+      image: './img/eggs.jpg',
+      audioSrc: './audio/eggs.mp3',
+    },
+    {
+      word: 'meat',
+      translation: 'мясо',
+      image: './img/meat.jpg',
+      audioSrc: './audio/meat.mp3',
+    },
+    {
+      word: 'sandwich',
+      translation: 'бутерброд',
+      image: './img/sandwich.jpg',
+      audioSrc: './audio/sandwich.mp3',
+    },
+    {
+      word: 'pizza',
+      translation: 'пицца',
+      image: './img/pizza.jpg',
+      audioSrc: './audio/pizza.mp3',
     },
   ],
 ]

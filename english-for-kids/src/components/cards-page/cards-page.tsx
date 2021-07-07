@@ -6,7 +6,15 @@ export default function CardsPage(props: { [key: string]: number }) {
   return (
     <div className="cards">
       {cards[props.id].map((word, index) => {
-        return <Card key={index} title={word.word} image={word.image} />
+        return (
+          <Card
+            key={index}
+            title={word.word}
+            translate={word.translation}
+            image={word.image}
+            audio={word.audioSrc}
+          />
+        )
       })}
     </div>
   )

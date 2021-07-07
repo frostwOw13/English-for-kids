@@ -20,6 +20,8 @@ export const App = () => {
         <Route path="/categories-4" render={() => <CardsPage id={4} />} />
         <Route path="/categories-5" render={() => <CardsPage id={5} />} />
         <Route path="/categories-6" render={() => <CardsPage id={6} />} />
+        <Route path="/categories-7" render={() => <CardsPage id={7} />} />
+        <Route path="/categories-8" render={() => <CardsPage id={8} />} />
       </Router>
     </>
   )
