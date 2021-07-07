@@ -2,7 +2,7 @@ import './menu.scss'
 import cards from '../cards'
 import { NavLink } from 'react-router-dom'
 
-export default function Menu() {
+export default function Menu(props: { [key: string]: boolean }) {
   return (
     <>
       <div className="hamburger-menu">
@@ -10,7 +10,7 @@ export default function Menu() {
         <label className="menu__btn" htmlFor="menu__toggle">
           <span></span>
         </label>
-        <ul className="menu__box">
+        <ul className={`menu__box ${props.toggle ? 'play' : ''}`}>
           <li>
             <NavLink to={'/'} className="menu__item">
               Main Page
@@ -19,7 +19,11 @@ export default function Menu() {
           {cards[0].map((category, id) => {
             return (
               <li key={id}>
-                <NavLink to={'/categories-' + (id + 1)} className="menu__item">
+                <NavLink
+                  to={'/categories-' + (id + 1)}
+                  className="menu__item"
+                  activeClassName="active"
+                >
                   {category}
                 </NavLink>
               </li>

@@ -15,7 +15,9 @@ export default function Category(props: RenderMainCards) {
       }}
       aria-hidden="true"
     >
-      <div className="category__top-color"></div>
+      <div
+        className={`category__top-color ${props.isPlay ? 'play' : ''}`}
+      ></div>
       <img className="category__image" src={props.image} alt=""></img>
       <h3 className="category__title">{props.title}</h3>
     </div>

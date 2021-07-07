@@ -320,7 +320,7 @@ const cards = [
       word: 'wardrobe',
       translation: 'шкаф',
       image: './img/wardrobe.jpg',
-      audioSrc: './audio/wardrode.mp3',
+      audioSrc: './audio/wardrobe.mp3',
     },
     {
       word: 'shelf',

@@ -5,3 +5,37 @@
   max-width: 1490px;
   margin: 0 auto;
 }
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  background-image: linear-gradient(40deg, #ffd86f, #fc6262);
+  border: 1px solid rgb(68, 68, 68);
+
+  &.hidden {
+    display: none;
+  }
+
+  &.start {
+    font-size: 28px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 650px;
+    border-radius: 10px;
+    color: #ffffff;
+  }
+
+  &.repeat {
+    width: 65px;
+    background-image: url(../../../public/img/repeat.svg),
+      linear-gradient(40deg, #ffd86f, #fc6262);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 32px 32px, cover;
+    background-position: 50%;
+    margin: 20px auto;
+  }
+}

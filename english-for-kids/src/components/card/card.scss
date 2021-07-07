@@ -33,6 +33,17 @@
   &-back {
     transform: rotateY(180deg);
   }
+
+  &-front.play > .card__bottom {
+    display: none;
+  }
+
+  &-front.play > .card__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+  }
 }
 
 .card__image {

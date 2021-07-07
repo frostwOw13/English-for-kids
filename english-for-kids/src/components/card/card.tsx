@@ -15,7 +15,9 @@ export default function Card(props: Record<string, string>) {
   }
 
   function playAudio() {
-    new Audio(props.audio).play()
+    if (!props.isPlay) {
+      new Audio(props.audio).play()
+    }
   }
 
   return (
@@ -25,7 +27,7 @@ export default function Card(props: Record<string, string>) {
       onClick={playAudio}
       aria-hidden="true"
     >
-      <div className="card-front">
+      <div className={`card-front ${props.isPlay ? 'play' : ''}`}>
         <img className="card__image" src={props.image} alt=""></img>
         <div className="card__bottom">
           <h3 className="card__title">{props.title}</h3>
