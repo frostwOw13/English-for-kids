@@ -1,9 +1,8 @@
-import { RenderMainCards } from '../../shared/interfaces'
 import cards from '../cards'
 import { useHistory } from 'react-router-dom'
 import './category.scss'
 
-export default function Category(props: RenderMainCards) {
+export default function Category(props: any) {
   const history = useHistory()
   const url = '/categories-' + (cards[0].indexOf(props.title) + 1)
 

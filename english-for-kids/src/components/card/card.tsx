@@ -1,7 +1,7 @@
 import './card.scss'
 import { useState } from 'react'
 
-export default function Card(props: Record<string, string>) {
+export default function Card(props: any) {
   const [isFlipped, setIsFlipped] = useState(false)
 
   function rotateCardClick() {

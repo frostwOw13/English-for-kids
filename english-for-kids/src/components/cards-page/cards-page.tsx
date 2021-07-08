@@ -3,19 +3,39 @@ import cards from '../../components/cards'
 import Card from '../card/card'
 import React, { useState, useRef } from 'react'
 
-export default function CardsPage(props: { [key: string]: unknown }) {
+export default function CardsPage(props: any) {
   const [isGameStarted, setIsGameStarted] = useState(false)
+  const [stars, setStars] = useState<Array<string>>([])
+  const [winClass, setWinClass] = useState<string>('')
   const currentCount = useRef<number>(0)
-  const currentCards = useRef<Array<{ [key: string]: string }>>([])
+  const currentCards = useRef<any>([])
+  const winnerCount = useRef<Array<boolean>>([])
 
   if (!props.toggle && isGameStarted) {
+    setWinClass('')
+    setStars([])
     setIsGameStarted(false)
   }
 
   function gameStart() {
+    winnerCount.current = []
     currentCount.current = 0
     setIsGameStarted(true)
     newGame()
+  }
+
+  function renderModale() {
+    if (winnerCount.current.includes(false)) {
+      setWinClass('failure')
+      setTimeout(() => {
+        setWinClass('')
+      }, 2000)
+    } else {
+      setWinClass('success')
+      setTimeout(() => {
+        setWinClass('')
+      }, 2000)
+    }
   }
 
   function newGame() {
@@ -37,24 +57,26 @@ export default function CardsPage(props: { [key: string]: unknown }) {
         (event?.target as HTMLInputElement).alt ===
         currentCards.current[currentCount.current - 1].word
       ) {
-        console.log('right')
         new Audio('./audio/correct.mp3').play()
         setTimeout(() => {
           if (currentCards)
             new Audio(
               currentCards.current[currentCount.current]?.audioSrc
             ).play()
+          setStars((prevStars) => [...prevStars, 'star-correct'])
           currentCount.current = currentCount.current + 1
+          winnerCount.current = [...winnerCount.current, true]
+          if (currentCount.current > 8) renderModale()
         }, 1000)
       } else {
-        console.log('wrong')
         new Audio('./audio/error.mp3').play()
         setTimeout(() => {
           if (currentCards)
             new Audio(
-              currentCards.current[currentCount.current]?.audioSrc
+              currentCards.current[currentCount.current - 1]?.audioSrc
             ).play()
-          currentCount.current = currentCount.current + 1
+          setStars((prevStars) => [...prevStars, 'star-error'])
+          winnerCount.current = [...winnerCount.current, false]
         }, 1000)
       }
     }
@@ -62,22 +84,35 @@ export default function CardsPage(props: { [key: string]: unknown }) {
 
   return (
     <>
+      <div className={winClass ? winClass : 'hidden'}>
+        <p className="modale-title">
+          {winnerCount.current.includes(false)
+            ? `${winnerCount.current.reduce((acc, el) => {
+                el === false ? acc++ : acc
+                return acc
+              }, 0)}` + ' errors'
+            : 'Win!'}
+        </p>
+      </div>
+      <div className="rating">
+        {stars.map((starClassName, id) => {
+          return <div className={starClassName} key={id}></div>
+        })}
+      </div>
       <div className="cards">
-        {cards[props.id].map(
-          (word: { [key: string]: string }, index: number) => {
-            return (
-              <Card
-                key={index}
-                title={word.word}
-                translate={word.translation}
-                image={word.image}
-                audio={word.audioSrc}
-                isPlay={props.toggle}
-                onStep={step}
-              />
-            )
-          }
-        )}
+        {cards[props.id].map((word: any, index: number) => {
+          return (
+            <Card
+              key={index}
+              title={word.word}
+              translate={word.translation}
+              image={word.image}
+              audio={word.audioSrc}
+              isPlay={props.toggle}
+              onStep={step}
+            />
+          )
+        })}
       </div>
       <button
         className={`btn start ${

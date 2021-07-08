@@ -1,6 +1,7 @@
 import Switcher from './components/switcher/switcher'
 import Menu from './components/menu/menu'
 import Field from './components/field/field'
+import { Footer } from './components/footer/footer'
 import { useState } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './styles/styles.scss'
@@ -18,7 +19,7 @@ export const App = () => {
       <Router>
         <div className="header">
           <Menu toggle={isPlay} />
-          <Switcher toggle={togglePlay} />
+          <Switcher onToggle={togglePlay} />
         </div>
         <Route exact path="/" render={() => <Field toggle={isPlay} />} />
         <Route
@@ -54,6 +55,7 @@ export const App = () => {
           render={() => <CardsPage id={8} toggle={isPlay} />}
         />
       </Router>
+      <Footer />
     </>
   )
 }

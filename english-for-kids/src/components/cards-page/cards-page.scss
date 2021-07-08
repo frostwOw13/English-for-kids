@@ -1,3 +1,62 @@
+.rating {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  height: 60px;
+  overflow-x: hidden;
+  line-height: 36px;
+  font-size: 36px;
+  color: #fc6262;
+
+  .star-correct,
+  .star-error {
+    flex-shrink: 0;
+    width: 60px;
+    min-width: 40px;
+    height: 60px;
+    background-size: 60px 60px;
+  }
+
+  .star-correct {
+    background-image: url(../../../public/img/star-win.svg);
+  }
+
+  .star-error {
+    background-image: url(../../../public/img/star.svg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.modale-title {
+  font-size: 42px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}
+
+.success,
+.failure {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.success {
+  background: url(../../../public/img/success.jpg) no-repeat center center fixed
+    #fff;
+}
+
+.failure {
+  background: url(../../../public/img/failure.jpg) no-repeat center center fixed
+    #fff;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;

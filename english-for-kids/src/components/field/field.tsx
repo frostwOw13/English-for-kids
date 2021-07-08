@@ -2,7 +2,7 @@ import Category from '../category/category'
 import cards from '../cards'
 import './field.scss'
 
-export default function Field(props: { [key: string]: boolean }) {
+export default function Field(props: any) {
   return (
     <div className="field">
       {cards[0].map((category, id) => {
