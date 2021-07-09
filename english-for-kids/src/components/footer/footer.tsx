@@ -9,11 +9,7 @@ export const Footer: React.FC = () => {
       </a>
       <p>Made in 2021</p>
       <a href="https://rs.school/js/">
-        <img
-          className="footer__image"
-          src="../public/rs-school.svg"
-          alt="RS School"
-        />
+        <img className="footer__image" src="./rs-school.svg" alt="RS School" />
       </a>
     </footer>
   )

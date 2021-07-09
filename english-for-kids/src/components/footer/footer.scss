@@ -27,3 +27,28 @@
     width: 150px;
   }
 }
+
+@media (max-width: 1495px) {
+  .footer {
+    max-width: 1050px;
+  }
+}
+
+@media (max-width: 1415px) {
+  .footer {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1065px) {
+  .footer {
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 715px) {
+  .footer {
+    flex-direction: column;
+    max-width: 300px;
+  }
+}

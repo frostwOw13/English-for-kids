@@ -1,17 +1,19 @@
-import './cards-page.scss'
-import cards from '../../components/cards'
-import Card from '../card/card'
 import React, { useState, useRef } from 'react'
+import { Card } from '../card/card'
+import { cards } from '../../components/cards'
+import { CardsPageProps, IWord } from '../../shared/interfaces'
+import { ANSWER_DELAY, MODALE_DELAY } from '../../shared/constants'
+import './cards-page.scss'
 
-export default function CardsPage(props: any) {
-  const [isGameStarted, setIsGameStarted] = useState(false)
+export const CardsPage: React.FC<CardsPageProps> = ({ id, isPlay }) => {
+  const [isGameStarted, setIsGameStarted] = useState<boolean>(false)
   const [stars, setStars] = useState<Array<string>>([])
   const [winClass, setWinClass] = useState<string>('')
   const currentCount = useRef<number>(0)
-  const currentCards = useRef<any>([])
-  const winnerCount = useRef<Array<boolean>>([])
+  const currentCards = useRef<IWord[]>([])
+  const winnerCount = useRef<boolean[]>([])
 
-  if (!props.toggle && isGameStarted) {
+  if (!isPlay && isGameStarted) {
     setWinClass('')
     setStars([])
     setIsGameStarted(false)
@@ -27,19 +29,21 @@ export default function CardsPage(props: any) {
   function renderModale() {
     if (winnerCount.current.includes(false)) {
       setWinClass('failure')
+      new Audio('./audio/failure.mp3').play()
       setTimeout(() => {
         setWinClass('')
-      }, 2000)
+      }, MODALE_DELAY)
     } else {
       setWinClass('success')
+      new Audio('./audio/success.mp3').play()
       setTimeout(() => {
         setWinClass('')
-      }, 2000)
+      }, MODALE_DELAY)
     }
   }
 
   function newGame() {
-    currentCards.current = cards[props.id].slice(0)
+    currentCards.current = cards[id].slice(0)
     currentCards.current.sort(function () {
       return 0.5 - Math.random()
     })
@@ -52,7 +56,7 @@ export default function CardsPage(props: any) {
   }
 
   function step(event?: React.MouseEvent) {
-    if (isGameStarted && currentCount.current <= 8) {
+    if (isGameStarted && currentCount.current <= currentCards.current.length) {
       if (
         (event?.target as HTMLInputElement).alt ===
         currentCards.current[currentCount.current - 1].word
@@ -66,8 +70,8 @@ export default function CardsPage(props: any) {
           setStars((prevStars) => [...prevStars, 'star-correct'])
           currentCount.current = currentCount.current + 1
           winnerCount.current = [...winnerCount.current, true]
-          if (currentCount.current > 8) renderModale()
-        }, 1000)
+          if (currentCount.current > currentCards.current.length) renderModale()
+        }, ANSWER_DELAY)
       } else {
         new Audio('./audio/error.mp3').play()
         setTimeout(() => {
@@ -77,7 +81,7 @@ export default function CardsPage(props: any) {
             ).play()
           setStars((prevStars) => [...prevStars, 'star-error'])
           winnerCount.current = [...winnerCount.current, false]
-        }, 1000)
+        }, ANSWER_DELAY)
       }
     }
   }
@@ -100,7 +104,7 @@ export default function CardsPage(props: any) {
         })}
       </div>
       <div className="cards">
-        {cards[props.id].map((word: any, index: number) => {
+        {cards[id].map((word: IWord, index: number) => {
           return (
             <Card
               key={index}
@@ -108,16 +112,14 @@ export default function CardsPage(props: any) {
               translate={word.translation}
               image={word.image}
               audio={word.audioSrc}
-              isPlay={props.toggle}
+              isPlay={isPlay}
               onStep={step}
             />
           )
         })}
       </div>
       <button
-        className={`btn start ${
-          props.toggle && !isGameStarted ? '' : 'hidden'
-        }`}
+        className={`btn start ${isPlay && !isGameStarted ? '' : 'hidden'}`}
         onClick={gameStart}
       >
         Start game

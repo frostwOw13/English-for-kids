@@ -1,8 +1,10 @@
-import './menu.scss'
-import cards from '../cards'
+import React from 'react'
+import { categories } from '../cards'
 import { NavLink } from 'react-router-dom'
+import { MenuProps } from '../../shared/interfaces'
+import './menu.scss'
 
-export default function Menu(props: { [key: string]: boolean }) {
+export const Menu: React.FC<MenuProps> = ({ isPlay }) => {
   return (
     <>
       <div className="hamburger-menu">
@@ -10,13 +12,13 @@ export default function Menu(props: { [key: string]: boolean }) {
         <label className="menu__btn" htmlFor="menu__toggle">
           <span></span>
         </label>
-        <ul className={`menu__box ${props.toggle ? 'play' : ''}`}>
+        <ul className={`menu__box ${isPlay ? 'play' : ''}`}>
           <li>
             <NavLink to={'/'} className="menu__item">
               Main Page
             </NavLink>
           </li>
-          {cards[0].map((category, id) => {
+          {categories.map((category, id) => {
             return (
               <li key={id}>
                 <NavLink

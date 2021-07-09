@@ -1,10 +1,12 @@
-import cards from '../cards'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { categories } from '../cards'
+import { CategoryProps } from '../../shared/interfaces'
 import './category.scss'
 
-export default function Category(props: any) {
+export const Category: React.FC<CategoryProps> = ({ title, image, isPlay }) => {
   const history = useHistory()
-  const url = '/categories-' + (cards[0].indexOf(props.title) + 1)
+  const url = '/categories-' + (categories.indexOf(title) + 1)
 
   return (
     <div
@@ -14,11 +16,9 @@ export default function Category(props: any) {
       }}
       aria-hidden="true"
     >
-      <div
-        className={`category__top-color ${props.isPlay ? 'play' : ''}`}
-      ></div>
-      <img className="category__image" src={props.image} alt=""></img>
-      <h3 className="category__title">{props.title}</h3>
+      <div className={`category__top-color ${isPlay ? 'play' : ''}`}></div>
+      <img className="category__image" src={image} alt=""></img>
+      <h3 className="category__title">{title}</h3>
     </div>
   )
 }

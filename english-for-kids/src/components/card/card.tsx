@@ -1,8 +1,16 @@
+import React, { useState } from 'react'
+import { CardProps } from '../../shared/interfaces'
 import './card.scss'
-import { useState } from 'react'
 
-export default function Card(props: any) {
-  const [isFlipped, setIsFlipped] = useState(false)
+export const Card: React.FC<CardProps> = ({
+  title,
+  translate,
+  image,
+  audio,
+  isPlay,
+  onStep,
+}) => {
+  const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
   function rotateCardClick() {
     setIsFlipped(true)
@@ -15,8 +23,8 @@ export default function Card(props: any) {
   }
 
   function playAudio() {
-    if (!props.isPlay) {
-      new Audio(props.audio).play()
+    if (!isPlay) {
+      new Audio(audio).play()
     }
   }
 
@@ -27,16 +35,16 @@ export default function Card(props: any) {
       onClick={playAudio}
       aria-hidden="true"
     >
-      <div className={`card-front ${props.isPlay ? 'play' : ''}`}>
+      <div className={`card-front ${isPlay ? 'play' : ''}`}>
         <img
           className="card__image"
-          src={props.image}
-          alt={props.title}
-          onClick={props.onStep}
+          src={image}
+          alt={title}
+          onClick={onStep}
           aria-hidden="true"
         ></img>
         <div className="card__bottom">
-          <h3 className="card__title">{props.title}</h3>
+          <h3 className="card__title">{title}</h3>
           <div
             className={`card__rotate ${isFlipped ? 'hidden' : ''}`}
             onClick={rotateCardClick}
@@ -45,9 +53,9 @@ export default function Card(props: any) {
         </div>
       </div>
       <div className="card-back">
-        <img className="card__image" src={props.image} alt=""></img>
+        <img className="card__image" src={image} alt=""></img>
         <div className="card__bottom">
-          <h3 className="card__title">{props.translate}</h3>
+          <h3 className="card__title">{translate}</h3>
         </div>
       </div>
     </div>

@@ -1,14 +1,14 @@
-import Switcher from './components/switcher/switcher'
-import Menu from './components/menu/menu'
-import Field from './components/field/field'
+import { Menu } from './components/menu/menu'
+import { Field } from './components/field/field'
 import { Footer } from './components/footer/footer'
-import { useState } from 'react'
+import { Switcher } from './components/switcher/switcher'
+import { CardsPage } from './components/cards-page/cards-page'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { useState } from 'react'
 import './styles/styles.scss'
-import CardsPage from './components/cards-page/cards-page'
 
-export const App = () => {
-  const [isPlay, setIsPlay] = useState(false)
+export const App: React.FC = () => {
+  const [isPlay, setIsPlay] = useState<boolean>(false)
 
   function togglePlay() {
     setIsPlay(!isPlay)
@@ -18,41 +18,41 @@ export const App = () => {
     <>
       <Router>
         <div className="header">
-          <Menu toggle={isPlay} />
+          <Menu isPlay={isPlay} />
           <Switcher onToggle={togglePlay} />
         </div>
-        <Route exact path="/" render={() => <Field toggle={isPlay} />} />
+        <Route exact path="/" render={() => <Field isPlay={isPlay} />} />
         <Route
           path="/categories-1"
-          render={() => <CardsPage id={1} toggle={isPlay} />}
+          render={() => <CardsPage id={0} isPlay={isPlay} />}
         />
         <Route
           path="/categories-2"
-          render={() => <CardsPage id={2} toggle={isPlay} />}
+          render={() => <CardsPage id={1} isPlay={isPlay} />}
         />
         <Route
           path="/categories-3"
-          render={() => <CardsPage id={3} toggle={isPlay} />}
+          render={() => <CardsPage id={2} isPlay={isPlay} />}
         />
         <Route
           path="/categories-4"
-          render={() => <CardsPage id={4} toggle={isPlay} />}
+          render={() => <CardsPage id={3} isPlay={isPlay} />}
         />
         <Route
           path="/categories-5"
-          render={() => <CardsPage id={5} toggle={isPlay} />}
+          render={() => <CardsPage id={4} isPlay={isPlay} />}
         />
         <Route
           path="/categories-6"
-          render={() => <CardsPage id={6} toggle={isPlay} />}
+          render={() => <CardsPage id={5} isPlay={isPlay} />}
         />
         <Route
           path="/categories-7"
-          render={() => <CardsPage id={7} toggle={isPlay} />}
+          render={() => <CardsPage id={6} isPlay={isPlay} />}
         />
         <Route
           path="/categories-8"
-          render={() => <CardsPage id={8} toggle={isPlay} />}
+          render={() => <CardsPage id={7} isPlay={isPlay} />}
         />
       </Router>
       <Footer />
