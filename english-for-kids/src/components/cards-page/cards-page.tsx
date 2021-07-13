@@ -56,6 +56,7 @@ export const CardsPage: React.FC<CardsPageProps> = ({ id, isPlay }) => {
   }
 
   function step(event?: React.MouseEvent) {
+    if (event) event.stopPropagation()
     if (isGameStarted && currentCount.current <= currentCards.current.length) {
       if (
         (event?.target as HTMLInputElement).alt ===
