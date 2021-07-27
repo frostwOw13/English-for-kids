@@ -18,7 +18,7 @@ What can you do in this application --
 2. Clicking on "Start game" button to start game. After clicking, sounds the english pronunciation of the word. You need to select a card. If you have selected a card with the correct answer, the "correct" audio sounds and you get one colored star, otherwise "error" and uncolored star. If you get one of the uncolored stars, the game will failed.
 3. After the first click on the "Start game" button, the inscription on it changes to the "Repeat" icon, the appearance of the button changes. When you click on the "Repeat" button, the pronunciation of the word sounds again.
 
-<img src='https://media.giphy.com/media/IaVqOguybNVe3pg26U/giphy.gif' style="float: left; margin-right: 30px;" width="410"> <img src='https://media.giphy.com/media/ttUUdOsuC0Bnw2U70w/giphy.gif' style="float: left; margin-left: 30px;" width="410">
+<img src='https://media.giphy.com/media/IaVqOguybNVe3pg26U/giphy.gif' style="float: left; margin-right: 30px;" width="415"> <img src='https://media.giphy.com/media/ttUUdOsuC0Bnw2U70w/giphy.gif' style="float: left; margin-left: 30px;" width="415">
 
 ## Tools
 1. Typescript
