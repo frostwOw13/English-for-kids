@@ -71,6 +71,10 @@
   background-color: #cfd8dc;
 }
 
+#menu__toggle:checked ~ .menu__btn {
+  position: fixed;
+}
+
 #menu__toggle:checked ~ .menu__btn > span {
   transform: rotate(45deg);
 }
@@ -97,4 +101,11 @@
 }
 .menu__item {
   transition-duration: 0.5s;
+}
+
+@media (max-width: 380px) {
+  #menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    left: -10%;
+  }
 }
