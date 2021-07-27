@@ -55,7 +55,7 @@ export const App: React.FC = () => {
           render={() => <CardsPage id={7} isPlay={isPlay} />}
         />
       </Router>
-      <Footer />
+      <Footer isPlay={isPlay} />
     </>
   )
 }

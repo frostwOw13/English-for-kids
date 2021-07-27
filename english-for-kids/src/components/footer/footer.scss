@@ -10,6 +10,10 @@
   background-image: linear-gradient(40deg, #00bf82, #0099ae);
   font-size: 24px;
 
+  &.play {
+    background-image: linear-gradient(40deg, #ffd86f, #fc6262);
+  }
+
   .footer__link {
     text-decoration: none;
     color: black;

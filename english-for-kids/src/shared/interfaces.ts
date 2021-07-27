@@ -30,6 +30,10 @@ export interface CategoryProps {
   isPlay: boolean
 }
 
+export interface FooterProps {
+  isPlay: boolean
+}
+
 export interface IWord {
   word: string
   translation: string

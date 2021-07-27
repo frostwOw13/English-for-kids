@@ -1,9 +1,10 @@
 import React from 'react'
+import { FooterProps } from '../../shared/interfaces'
 import './footer.scss'
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<FooterProps> = ({ isPlay }) => {
   return (
-    <footer className="footer">
+    <footer className={isPlay ? 'footer play' : 'footer'}>
       <a className="footer__link" href="https://github.com/frostwOw13">
         My GitHub
       </a>
