@@ -4,6 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/frostwOw13/English-for-kids.svg?style=social)](https://github.com/frostwOw13/English-for-kids/network) [![GitHub stars](https://img.shields.io/github/stars/frostwOw13/English-for-kids.svg?style=popout)](https://github.com/frostwOw13/English-for-kids/stargazers) [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 An English for kids application for learning English words by children. 💥✨
+Click to see [project](https://frostwow13-english-for-kids.netlify.app/)
 ### 👉 If you like this repo then please give it a ⭐️
 
 ## Short Description
